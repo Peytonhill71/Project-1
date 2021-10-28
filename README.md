@@ -31,7 +31,6 @@ Filebeat is a lightweight shipper for forwarding and centralizing log data.
 
 Metricbeat is a lightweight shipper that records system and service statistics.
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -48,15 +47,15 @@ Only the JumpBox machine can accept connections from the Internet. Access to thi
 - 96.33.7.236
 
 Machines within the network can only be accessed by JumpBox.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Jumpbox - 
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-| web1&web2| No                  | 10.0.0.4             |
-| Elk      |                     |                      |
+| Jump Box | No                  | 10.0.0.7 10.0.0.8    |
+| web1&web2| Yes                 | 10.0.0.4             |
+| Elk      | No                  | 10.0.0.4             |
 
 ### Elk Configuration
 
@@ -94,12 +93,11 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the config file to etc/ansible/.
-- Update the config file to include the ip of the machine
+- Update the hosts file to add the ip of the webservers, then add the ELK group with the IPs as well
 - Run the playbook, and navigate to kibana to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_ elkplaybook.yml 
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_ The config file. You insert the IP/port of each specific one
-- _Which URL do you navigate to in order to check that the ELK server is running?http://40.76.226.151:5601/app/kibana
+- _Which file is the playbook? Where do you copy it?_ elkplaybook.yml copy it to etc/ansible/ 
+- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_ The hosts file. You insert the IP/port of each specific one on the hosts file.
+- _Which URL do you navigate to in order to check that the ELK server is running?http://40.76.226.151:5601/setup.php
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
